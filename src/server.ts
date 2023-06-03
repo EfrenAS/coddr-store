@@ -7,10 +7,18 @@ class ServerBootstrap {
   private port: number = 8000;
 
   constructor() {
-    this.app.use(express.json);
+    this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(morgan("dev"));
     this.app.use(cors());
+
+    // Routes
+    this.app.get('/api/hola', (req, res) => {
+      res.status(200).json({
+        msg: 'Hello World from method GET'
+      });
+    });
+
     this.listen();
   }
 
