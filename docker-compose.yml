@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  ts-nodejs-class:
+    image: mysql:5.7
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    enviroment:
+      MYSQL_DATABASE: ts-nodejs-class
+      MYSQL_ROOT_USER: root
+      MYSQL_USERMANE: root
+      MYSQL_ROOT_PASSWORD: Fu11St@ck
+      MYSQL_PASSWORD: Fu11St@ck
