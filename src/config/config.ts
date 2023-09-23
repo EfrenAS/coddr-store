@@ -49,7 +49,7 @@ export abstract class ConfigServer {
       migrations: [__dirname + "/../../migrations/*{.ts, .js}"], // Same to entities, defined the route for read all migrations
       synchronize: true,
       logging: true,
-      namingStrategy: new SnakeNamingStrategy()
+      namingStrategy: new SnakeNamingStrategy() //Save the attributes on DB with the camecase style, xample: userId => user_id
     };
   }
 }
