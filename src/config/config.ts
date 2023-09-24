@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv";
 import { DataSourceOptions } from "typeorm";
 import { SnakeNamingStrategy } from "typeorm-naming-strategies";
+import { DataSource } from "typeorm";
 
 export abstract class ConfigServer {
   constructor() {
@@ -52,4 +53,9 @@ export abstract class ConfigServer {
       namingStrategy: new SnakeNamingStrategy() //Save the attributes on DB with the camecase style, xample: userId => user_id
     };
   }
+
+  async dbConnect(): Promise<DataSource> {
+    return await new DataSource(this.typeORMConfig).initialize();
+  }
+
 }
