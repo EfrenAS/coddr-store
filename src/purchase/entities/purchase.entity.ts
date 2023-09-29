@@ -15,7 +15,9 @@ export class PurchaseEntity extends BaseEntity {
   @JoinColumn({ name: "customer_id" })
   customer!: CustomerEntity[];
 
-  @OneToMany(() => PurchaseProductEntity, (purchaseProduct) => purchaseProduct.purchase)
+  @OneToMany(
+    () => PurchaseProductEntity,
+    (purchaseProduct) => purchaseProduct.purchase
+  )
   purchaseProduct!: PurchaseProductEntity[];
-
 }

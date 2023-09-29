@@ -16,5 +16,8 @@ export class CustomerEntity extends BaseEntity {
   user!: UserEntity;
 
   @OneToMany(() => PurchaseEntity, (purchase) => purchase.customer)
-  purchases!: PurchaseEntity;
+  purchases!: PurchaseEntity[];
 }
+
+
+// Hola este es un cambio de ejemplo
