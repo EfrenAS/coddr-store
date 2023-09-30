@@ -7,7 +7,7 @@ export abstract class ConfigServer {
   constructor() {
     const nodeNameEnv: string = this.createPathEnv(this.nodeEnv);
     dotenv.config({
-      path: nodeNameEnv
+      path: nodeNameEnv,
     });
   }
 
@@ -22,40 +22,39 @@ export abstract class ConfigServer {
   }
 
   /**
-  *  get => Force the method to return something, in this case retunr a value of type string
-  */
+   *  get => Force the method to return something, in this case retunr a value of type string
+   */
   public get nodeEnv(): string {
     return this.getEnviroment("NODE_ENV")?.trim() || "";
   }
 
   public createPathEnv(path: string): string {
     const arrEnv: Array<string> = ["env"];
-    if(path.length > 0) {
+    if (path.length > 0) {
       const stringToArray: string[] = path.split(".");
       arrEnv.unshift(...stringToArray);
     }
-    return '.' + arrEnv.join('.');
+    return "." + arrEnv.join(".");
   }
 
   // Stablished the DB parameters to connection
   public get typeORMConfig(): DataSourceOptions {
     return {
       type: "mysql",
-      host: this.getEnviroment('DB_HOST'),
-      port: this.getNumberEnv('DB_PORT'),
-      username: this.getEnviroment('DB_USERNAME'),
-      password: this.getEnviroment('DB_PASSWORD'),
-      database: this.getEnviroment('DB_DATABASE'),
+      host: this.getEnviroment("DB_HOST"),
+      port: this.getNumberEnv("DB_PORT"),
+      username: this.getEnviroment("DB_USERNAME"),
+      password: this.getEnviroment("DB_PASSWORD"),
+      database: this.getEnviroment("DB_DATABASE"),
       entities: [__dirname + "/../**/*.entity{.ts,.js}"], // Defined the any route that containt all entities files
       migrations: [__dirname + "/../../migrations/*{.ts, .js}"], // Same to entities, defined the route for read all migrations
       synchronize: true,
-      logging: true,
-      namingStrategy: new SnakeNamingStrategy() //Save the attributes on DB with the camecase style, xample: userId => user_id
+      logging: false,
+      namingStrategy: new SnakeNamingStrategy(), //Save the attributes on DB with the camecase style, xample: userId => user_id
     };
   }
 
   async dbConnect(): Promise<DataSource> {
     return await new DataSource(this.typeORMConfig).initialize();
   }
-
 }

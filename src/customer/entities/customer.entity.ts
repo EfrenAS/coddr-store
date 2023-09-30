@@ -18,6 +18,3 @@ export class CustomerEntity extends BaseEntity {
   @OneToMany(() => PurchaseEntity, (purchase) => purchase.customer)
   purchases!: PurchaseEntity[];
 }
-
-
-// Hola este es un cambio de ejemplo
