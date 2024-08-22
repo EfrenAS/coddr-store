@@ -1,1 +1,1 @@
-CREATE DATABASE IF NOT EXIST ts-nodejs-class
+CREATE DATABASE IF NOT EXIST codrr_store

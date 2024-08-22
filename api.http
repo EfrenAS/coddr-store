@@ -1,0 +1,88 @@
+### Obtener todo los usuarios
+GET http://localhost:8000/api/user
+
+
+### Obtener un usuario por Id
+GET http://localhost:8000/api/user/ca5c9b91-7a85-4106-bd26-8b18636684ac
+
+
+### Dar de alta un usuario
+POST  http://localhost:8000/api/user
+Content-Type: application/json
+
+{
+  "name": "Test",
+  "lastname": "Testing",
+  "username": "Testing",
+  "email": "testing@gmail.com",
+  "password": "123456",
+  "city": "Mexico"
+}
+
+
+### Actualizar parcialmente un usuaario
+PATCH http://localhost:8000/api/user/ca5c9b91-7a85-4106-bd26-8b18636684ac
+Content-Type: application/json
+
+{
+  "email": "juanito@gmail.com"
+}
+
+
+### Eliminar un usuario por ID
+DELETE http://localhost:8000/api/user/c76265f0-a00c-4f9c-977c-972bbf5153e6
+
+
+
+# CUSTOMERS
+
+### Obtener todos los clientes
+GET http://localhost:8000/api/customer
+
+### Obtener un usuario por ID
+GET http://localhost:8000/api/customer/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+
+### Crear un cliente
+POST  http://localhost:8000/api/customer
+Content-Type: application/json
+
+{
+  "address": "Av. Puente de la Reyna 3000, Querétaro, Qro.",
+  "dni": 654321,
+  "user_id": "e5b3832b-fabe-49f0-a4cb-a1acc6e4a32c"
+}
+
+
+# CATEGORIES
+
+### Obtener todas las categorias
+GET http://localhost:8000/api/category
+
+
+### Obtener una categoría por Id
+GET http://localhost:8000/api/category/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+
+
+### Crear una categoría
+
+POST http://localhost:8000/api/category
+Content-Type: application/json
+
+{
+  "name": "Electrónica",
+  "description": "Categoría de productos electrónicos"
+}
+
+### Actualizar una categoría
+
+PATCH  http://localhost:8000/api/category/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+Content-Type: application/json
+
+{
+  "name": "Electrónica",
+  "description": "Categoría de mercancías electrónicas"
+}
+
+### Eliminar una categoría
+DELETE  http://localhost:8000/api/category/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+

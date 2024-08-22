@@ -8,7 +8,7 @@ export class UserService extends BaseService<UserEntity> {
     super(UserEntity);
   }
 
-  async findAllUser(): Promise<UserEntity[]> {
+  async findAllUsers(): Promise<UserEntity[]> {
     return (await this.execRepository).find();
   }
 
@@ -20,10 +20,10 @@ export class UserService extends BaseService<UserEntity> {
     return (await this.execRepository).save(body);
   }
 
-  async updateUser(id: string, dataUpdated: userDTO): Promise<UpdateResult> {
-    return (await this.execRepository).update(id, dataUpdated);
+  async updateUser(id: string, dataUpdate: userDTO): Promise<UpdateResult> {
+    return (await this.execRepository).update(id, dataUpdate);
   }
-
+  
   async deleteUser(id: string): Promise<DeleteResult> {
     return (await this.execRepository).delete({ id });
   }
