@@ -60,7 +60,7 @@ GET http://localhost:8000/api/category
 
 
 ### Obtener una categoría por Id
-GET http://localhost:8000/api/category/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+GET http://localhost:8000/api/category/72b59051-68d9-44f9-91b0-c771442cf147
 
 
 ### Crear una categoría
@@ -69,20 +69,19 @@ POST http://localhost:8000/api/category
 Content-Type: application/json
 
 {
-  "name": "Electrónica",
-  "description": "Categoría de productos electrónicos"
+  "name": "Bebeps",
+  "description": "Ctegoría de productos para recien nacidos"
 }
 
 ### Actualizar una categoría
 
-PATCH  http://localhost:8000/api/category/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+PATCH  http://localhost:8000/api/category/4f7b7213-0943-4ccb-8a94-0ce25fd4c56f
 Content-Type: application/json
 
 {
-  "name": "Electrónica",
-  "description": "Categoría de mercancías electrónicas"
+  "name": "Bebes"
 }
 
 ### Eliminar una categoría
-DELETE  http://localhost:8000/api/category/9683ffa6-6842-4c20-a0ff-c434c9f5b92b
+DELETE  http://localhost:8000/api/category/4f7b7213-0943-4ccb-8a94-0ce25fd4c56f
 
